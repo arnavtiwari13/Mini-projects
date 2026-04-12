@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Transition</title>
+    <link rel="stylesheet" href="bg.css">
+</head>
+<body>
+    <div class="container">
+        <div class="imgbox">
+            <img src="transparent.png" width="100%" >
+
+            <div class="imgwrap">
+
+                <img src="original.jpg" id="original">
+
+            </div>
+            <span>
+                <img src="arrow.png" class="arrow" id="line">
+            </span>
+        </div>
+    </div>
+    <script>
+        var imgbox=document.querySelector(".imgbox");
+        var imgwrap=document.querySelector(".imgwrap");
+        var original=document.getElementById("original");
+        var line=document.getElementById("line");
+
+        original.style.width=imgbox.offsetWidth + "px";
+
+
+        var leftspace=imgbox.offsetLeft;
+
+        imgbox.onmousemove =  function(e){
+            var boxwidth=(e.pageX - leftspace)+"px";
+            imgwrap.style.width=boxwidth;
+            line.style.left=boxwidth;
+        }
+    </script>
+</body>
+</html>
